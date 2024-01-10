@@ -50,9 +50,14 @@ function calculate() {
         }
       }
     });
-  
-    display1.textContent = result;
-    display2.textContent = result
+    if (Number.isInteger(result)) {
+        display1.textContent = result.toString();
+        display2.textContent = result.toString();
+    } else {
+        result = parseFloat(result.toFixed(4));
+        display1.textContent = result.toString().substring(0, 10);
+        display2.textContent = result.toString().substring(0, 10);
+    }
   }
 
 function clearDisplay() {
