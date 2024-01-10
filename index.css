@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Optional: makes sure the container takes the full height of the viewport */
+    margin: 0; /* Optional: removes default margin */
+  }
+
+.numbers:hover {
+    background-color: antiquewhite;
+    
+}
+
+.numbers:active {
+    background-color: rgb(225, 195, 155);
+}
+.numbers{
+    border: 1px solid black;
+    height: 60px;
+    width: 80px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.container {
+    display: flex;
+    border:1px solid;
+    width: 405px;
+    height: 515px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    text-align: center;;
+    background-color: gray;
+}
+
+.lastrow{
+    display: flex;
+}
+
+.secondrow {
+    display: flex;
+
+}
+
+.thirdrow {
+    display: flex;
+
+
+ }
+
+.firstrow {
+    display: flex;
+    
+    
+}
+.display {
+    border: 1px solid black;
+    width: 380px;
+    height: 80px;
+    margin-left: 12px;
+    margin-top: 12px;
+    background-color: white;
+    /* text-align: right; */
+    text-align: right;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.btn {
+    width:380px;
+    height: 80px;
+    margin-left: 12px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.clear {
+    height: inherit;
+    width: inherit;
+    
+    background-color: rgb(86, 86, 236);
+    border-radius: 5px;
+}
+
+.delete {
+    height: inherit;
+    width: inherit;
+    margin-left: 20px;
+    background-color: rgb(237, 35, 35);
+    border-radius: 5px;
+}
+
+.clear:hover {
+    background-color: aqua;
+}
+
+.delete:hover {
+    background-color: rgb(152, 53, 53);
+}
+
+.clear:active {
+    background-color: rgb(67, 146, 146);
+}
+
+.delete:active {
+    background-color: rgb(87, 33, 33);
+}
+
+.display1 {
+    color:rgb(225, 195, 155);
+    width: 380px;
+}
+
+.display2 {
+    color:rgb(67, 146, 146);
+    width: 380px;
+}
