@@ -9,38 +9,37 @@
 <body>
     <div class="container">
         <div class="display">
-            <div class="display1"></div>
-            <div class="display2"></div>
+          
         </div>
     <div class="btn">    
-    <button class="clear" onclick="clearDisplay()">CLEAR</button>
-    <button class="delete" onclick="deleteLastCharacter()">DELETE</button>
+    <button class="clear" ">CLEAR</button>
+    <button class="delete" ">DELETE</button>
     </div>
     <div class="firstrow">
-        <button class="numbers" id="seven" onclick="appendToDisplay('7')">7</button>
-        <button class="numbers" id="eight" onclick="appendToDisplay('8')">8</button>
-        <button class="numbers" id="nine" onclick="appendToDisplay('9')">9</button>
-        <button class="numbers" id="division" onclick="appendToDisplay('/')">/</button>
+        <button class="numbers" id="seven" >7</button>
+        <button class="numbers" id="eight" >8</button>
+        <button class="numbers" id="nine" >9</button>
+        <button class="operator" id="division" >/</button>
         
     </div>
     <div class="secondrow">
-            <button class="numbers" id="four" onclick="appendToDisplay('4')">4</button>
-            <button class="numbers" id="five" onclick="appendToDisplay('5')">5</button>
-            <button class="numbers" id="six" onclick="appendToDisplay('6')">6</button>
-            <button class="numbers" id="mul" onclick="appendToDisplay('*')">*</button>
+            <button class="numbers" id="four" >4</button>
+            <button class="numbers" id="five" >5</button>
+            <button class="numbers" id="six" >6</button>
+            <button class="operator" id="mul" >*</button>
         </div>
         <div class="thirdrow">
-            <button class="numbers" id="one" onclick="appendToDisplay('1')">1</button>
-            <button class="numbers" id="two" onclick="appendToDisplay('2')">2</button>
-            <button class="numbers" id="three" onclick="appendToDisplay('3')">3</button>
-            <button class="numbers" id="sub" onclick="appendToDisplay('-')">-</button>
+            <button class="numbers" id="one" >1</button>
+            <button class="numbers" id="two" >2</button>
+            <button class="numbers" id="three" >3</button>
+            <button class="operator" id="sub" >-</button>
             
         </div>    
         <div class="lastrow">
-            <button class="numbers" id="dot" onclick="appendToDisplay('.')">.</button>
+            <button class="dot" id="dot" onclick="appendToDisplay('.')">.</button>
             <button class="numbers" id="zero" onclick="appendToDisplay('0')">0</button>
-            <button class="numbers" id="equals" onclick="calculate()">=</button>
-            <button class="numbers" id="add" onclick="appendToDisplay('+')">+</button>
+            <button class="equals" id="equals" onclick="calculate()">=</button>
+            <button class="operator" id="add" >+</button>
         </div>    
     </div>
     <script src="index.js"></script>

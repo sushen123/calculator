@@ -1,71 +1,107 @@
+const numbersButton = document.querySelectorAll(".numbers")
+const operatorButton = document.querySelectorAll(".operator")
+const dot = document.querySelector(".dot")
+const equals = document.querySelector(".equals")
+const display = document.querySelector(".display")
+const clearButton = document.querySelector(".clear")
+const dlt = document.querySelector(".delete")
 
-function appendToDisplay(value) {
-    const display1 = document.querySelector(".display1");
-    
-    if(display1.textContent === '0') {
-        display1.textContent = value;
-    }
-    else {display1.textContent += value;
-    }
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
+
+function add(a,b){
+  return a+b;
 }
 
-let previousResults = [];
-function calculate() {
-    const display1 = document.querySelector(".display1");
-    const display2 = document.querySelector(".display2");
-    const expression = display1.textContent;
-  
-   
-    const operators = ['+', '-', '*', '/'];
-    let result = 0;
-  
-    operators.forEach((operator) => {
-      const operands = expression.split(operator);
-  
-      if (operands.length > 1) {
-   
-        switch (operator) {
-          case '+':
-            result = operands.reduce((acc, operand) => acc + parseFloat(operand), 0);
-            break;
-          case '-':
-            result = operands.reduce((acc, operand) => acc - parseFloat(operand), 0);
-            break;
-          case '*':
-            result = operands.reduce((acc, operand) => acc * parseFloat(operand), 1);
-            break;
-          case '/':
+function sub(a,b){
+  return a-b;
+}
 
-            result = operands.reduce((acc, operand) => {
-                const num = parseFloat(operand);
-                return acc !== null && !isNaN(num) && num!== 0 ? acc / num : null;
-             },1);
-             
-             if (result === null) {
-                display1.textContent = 'Error';
-                display2.textContent = 'Error';
-                return;
-              }
-              break;
-        }
-      }
-    });
-    if (Number.isInteger(result)) {
-        display1.textContent = result.toString();
-        display2.textContent = result.toString();
-    } else {
-        result = parseFloat(result.toFixed(4));
-        display1.textContent = result.toString().substring(0, 10);
-        display2.textContent = result.toString().substring(0, 10);
-    }
+function mul(a,b){
+  return a*b;
+}
+
+function divide(a,b) {
+  return a/b;
+}
+
+function operate(a, operator, b) {
+  switch(operator) {
+    case '+':
+      return add(a,b)
+    case '-': 
+      return sub(a,b);
+    case '*':
+      return mul(a,b)
+    case '/':
+      return divide(a,b)     
   }
+}
 
-function clearDisplay() {
-    const display = document.querySelector(".display1");
-    display.textContent = '0';
+
+function updateDisplay(value) {
+  display.textContent = value;
 
 }
+
+
+function clear() {
+firstNumber = "";
+operator = "";
+secondNumber = "";
+updateDisplay('');
+
+ 
+
+}
+
 function deleteLastCharacter() {
-    const display = document.querySelector(".display1");
-    display.textContent = display.textContent.slice(0, -1);
+  display.textContent = display.textContent.slice(0, -1)
 }
+
+
+numbersButton.forEach((number) => {
+  number.addEventListener("click", () => {
+    if (!operator) {
+    firstNumber += number.textContent;
+    updateDisplay(firstNumber);
+
+    }
+    else {
+        secondNumber += number.textContent;
+        updateDisplay(secondNumber);
+    }
+  })
+})
+
+operatorButton.forEach((operatorBtn) => {
+  operatorBtn.addEventListener("click", () => {
+    if (firstNumber && !secondNumber) {
+      // If the first number is set and the second number is not set, update the operator
+      operator = operatorBtn.textContent;
+     
+    }
+  });
+});
+clearButton.addEventListener("click", clear)
+
+dlt.addEventListener("click", deleteLastCharacter)
+
+equals.addEventListener("click", () => {
+  if(firstNumber && operator && secondNumber){
+    const result = operate(parseFloat(firstNumber), operator, parseFloat(secondNumber));
+    updateDisplay(result);
+    firstNumber = result.toString();
+    operator = '';
+    secondNumber = '';
+  }
+})
+
+dot.addEventListener("click", () => {
+
+const endsWithOperator = /[+\-*/]$/.test(display.textContent);
+  if (!display.textContent.includes('.') && !endsWithOperator) {
+    display.textContent += '.';
+  }
+})

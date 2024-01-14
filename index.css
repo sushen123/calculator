@@ -2,19 +2,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Optional: makes sure the container takes the full height of the viewport */
-    margin: 0; /* Optional: removes default margin */
+    height: 100vh; 
+    margin: 0; 
   }
 
-.numbers:hover {
+.numbers:hover, .operator:hover, .equals:hover, .dot:hover {
     background-color: antiquewhite;
     
 }
 
-.numbers:active {
+.numbers:active, .operator:active, .equals:active, .dot:active {
     background-color: rgb(225, 195, 155);
 }
-.numbers{
+.numbers, .operator, .equals, .dot {
     border: 1px solid black;
     height: 60px;
     width: 80px;
@@ -35,6 +35,7 @@ body {
     align-content: flex-start;
     text-align: center;;
     background-color: gray;
+
 }
 
 .lastrow{
@@ -111,12 +112,11 @@ body {
     background-color: rgb(87, 33, 33);
 }
 
-.display1 {
-    color:rgb(225, 195, 155);
-    width: 380px;
+.previous {
+    font-size: 25px;
 }
 
-.display2 {
-    color:rgb(67, 146, 146);
-    width: 380px;
+.current {
+    font-size: 50px;
 }
+
